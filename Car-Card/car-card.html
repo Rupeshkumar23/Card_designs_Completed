@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #FFA300;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card {
+    width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transform: translateY(15px);
+    border-radius: 0px;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    position: relative;
+    z-index: 0;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: #fff;
+    transform: translateY(100%); 
+    opacity: 0; 
+    transition: transform 0.7s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 2;
+}
+
+.card:hover .card-content {
+    transform: translateY(0%); 
+    opacity: 1; 
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.card-button {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 8px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #cccccc;
+}
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img src="./car.jpg" alt="Yellow Sports Car" class="card-image">
+    <div class="card-content">
+        <h2 class="card-title">CARS</h2>
+        <p class="card-text">
+            Lorem ipsum is simply dummy text from the printing and
+            typesetting industry.
+        </p>
+        <a href="#" class="card-button">Read More</a>
+    </div>
+</div>
+
+</body>
+</html>

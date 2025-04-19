@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Table Example - Updated</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        table {
+            width: 650px;
+            border-collapse: collapse;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            border-bottom: 2px solid #FF6F43;
+        }
+
+        thead tr {
+            background-color: #FF6F43;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th:nth-child(1),
+        td:nth-child(1),
+        th:nth-child(3),
+        td:nth-child(3) {
+            text-align: center;
+        }
+
+        tbody tr {
+            background-color: #ffffff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr.highlight-row td {
+            color: #FF6F43;
+        }
+
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Tutor Joes</td>
+                <td>40</td>
+                <td>Salem</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Tom</td>
+                <td>14</td>
+                <td>Salem</td>
+            </tr>
+            <tr class="highlight-row">
+                <td>3</td>
+                <td>Sara</td>
+                <td>20</td>
+                <td>Namakkal</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Tiya</td>
+                <td>18</td>
+                <td>Chennai</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Diya</td>
+                <td>17</td>
+                <td>Banglore</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Tivin</td>
+                <td>12</td>
+                <td>Hosur</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Ram</td>
+                <td>19</td>
+                <td>Namakkal</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
