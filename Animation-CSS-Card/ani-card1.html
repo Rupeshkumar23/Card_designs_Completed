@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Hover Effect</title>
+        <style>
+            body {
+                background-color: #f0f0f0;
+                font-family: sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 80vh;
+                margin: 0;
+                position: relative;
+                padding-bottom: 50px;
+            }
+
+            .image-container {
+                display: flex;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .hover-image {
+                width: 250px;
+                height: 350px;
+                object-fit: cover;
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
+            }
+
+            .image-container:hover > .hover-image {
+                filter: blur(4px);
+                transform: scale(0.95);
+            }
+
+            .image-container:hover > .hover-image:hover {
+                filter: blur(0);
+                transform: scale(1.05);
+                z-index: 10;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image-container">
+            <img
+                src="./11.jpg"
+                alt="Baby in yellow hat holding lemons"
+                class="hover-image"
+            />
+            <img
+                src="./22.jpg"
+                alt="Smiling baby in white bonnet"
+                class="hover-image"
+            />
+            <img
+                src="./33.jpg"
+                alt="Young girl sitting with a black dog"
+                class="hover-image"
+            />
+        </div>
+    </body>
+</html>
