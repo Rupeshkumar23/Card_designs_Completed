@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        /* Basic Reset & Body Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #E0E0E0; /* Grey background like the image */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align container to top */
+            min-height: 100vh;
+            padding-top: 50px; /* Add some space from the top */
+        }
+
+        /* Container for the user list */
+        .user-list-container {
+            background-color: #F8F9FA; /* Light background for the table container */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 1000px; /* Fixed width for desktop */
+            overflow: hidden; /* Ensures border-radius clips content */
+        }
+
+        /* Table Styling */
+        .user-table {
+            width: 100%;
+            border-collapse: collapse; /* Removes gaps between cells */
+        }
+
+        /* Table Header */
+        .user-table th {
+            text-align: left;
+            padding: 16px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #E9ECEF; /* Separator line */
+            background-color: #F8F9FA; /* Match container background */
+        }
+
+        /* Table Data Cells */
+        .user-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #E9ECEF; /* Row separator */
+            vertical-align: middle; /* Align content vertically */
+            font-size: 14px;
+            color: #495057;
+        }
+
+        /* Last row doesn't need a bottom border */
+        .user-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* --- Column Specific Styling --- */
+
+        /* Name Column */
+        .user-table th:nth-child(1),
+        .user-table td:nth-child(1) {
+             width: 30%; /* Approximate width */
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* Circular images */
+            margin-right: 15px;
+            object-fit: cover; /* Ensure image covers the area */
+        }
+        .user-name {
+            font-weight: 600;
+            color: #212529;
+            display: block; /* Name on its own line */
+        }
+        .user-email {
+            font-size: 12px;
+            color: #6C757D;
+            display: block; /* Email below name */
+        }
+
+        /* Title Column */
+         .user-table th:nth-child(2),
+         .user-table td:nth-child(2) {
+             width: 30%; /* Approximate width */
+         }
+         .title-main {
+             font-weight: 500;
+             color: #212529;
+             display: block;
+         }
+         .title-sub {
+             font-size: 12px;
+             color: #6C757D;
+             display: block;
+         }
+
+        /* Status Column */
+        .user-table th:nth-child(3),
+        .user-table td:nth-child(3) {
+             width: 15%; /* Approximate width */
+        }
+        .status-pill {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 12px; /* Pill shape */
+            text-align: center;
+            min-width: 60px; /* Ensure minimum size */
+        }
+        .status-active {
+            background-color: #D1FAE5; /* Light green */
+            color: #065F46; /* Dark green */
+        }
+        .status-pending {
+            background-color: #FEF3C7; /* Light yellow */
+            color: #92400E; /* Dark yellow/brown */
+        }
+        .status-inactive {
+            background-color: #FEE2E2; /* Light red */
+            color: #991B1B; /* Dark red */
+        }
+        .status-meeting {
+             background-color: #DBEAFE; /* Light blue */
+             color: #1E40AF; /* Dark blue */
+        }
+
+
+        /* Role Column */
+         .user-table th:nth-child(4),
+         .user-table td:nth-child(4) {
+             width: 15%; /* Approximate width */
+             color: #6C757D;
+         }
+
+        /* Edit Column */
+        .user-table th:nth-child(5),
+        .user-table td:nth-child(5) {
+            width: 10%; /* Approximate width */
+            text-align: right; /* Align edit link to the right */
+        }
+        .edit-link {
+            color: #3B82F6; /* Blue color */
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .edit-link:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="user-list-container">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Role</th>
+                    <th></th> <!-- Empty header for Edit column -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="user-info">
+                            <!-- Placeholder image - replace with actual URLs if available -->
+                            <img src="./women.jpg" alt="Jane Cooper" class="profile-pic">
+                            <div>
+                                <span class="user-name">Jane Cooper</span>
+                                <span class="user-email">jane.cooper@example.com</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="title-main">Regional Paradigm Technician</span>
+                        <span class="title-sub">Optimization</span>
+                    </td>
+                    <td><span class="status-pill status-active">Active</span></td>
+                    <td>Admin</td>
+                    <td><a href="#" class="edit-link">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="user-info">
+                             <!-- Placeholder image -->
+                            <img src="./men1.jpg" alt="Cody Fisher" class="profile-pic">
+                            <div>
+                                <span class="user-name">Cody Fisher</span>
+                                <span class="user-email">cody.fisher@example.com</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="title-main">Product Directives Officer</span>
+                        <span class="title-sub">Intranet</span>
+                    </td>
+                    <td><span class="status-pill status-pending">Pending</span></td>
+                    <td>Owner</td>
+                    <td><a href="#" class="edit-link">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="user-info">
+                             <!-- Placeholder image -->
+                            <img src="./women1.jpg" alt="Esther Howard" class="profile-pic">
+                            <div>
+                                <span class="user-name">Esther Howard</span>
+                                <span class="user-email">esther.howard@example.com</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="title-main">Forward Response Developer</span>
+                        <span class="title-sub">Directives</span>
+                    </td>
+                    <td><span class="status-pill status-inactive">Inactive</span></td>
+                    <td>Member</td>
+                    <td><a href="#" class="edit-link">Edit</a></td>
+                </tr>
+                 <tr>
+                    <td>
+                        <div class="user-info">
+                             <!-- Placeholder image -->
+                            <img src="./women2.jpg" alt="Janny Wilson" class="profile-pic">
+                            <div>
+                                <span class="user-name">Janny Wilson</span>
+                                <span class="user-email">jenny.wilson@example.com</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="title-main">Central Security Manager</span>
+                        <span class="title-sub">Program</span>
+                    </td>
+                    <td><span class="status-pill status-meeting">Meeting</span></td>
+                    <td>Member</td>
+                    <td><a href="#" class="edit-link">Edit</a></td>
+                </tr>
+                 <tr>
+                    <td>
+                        <div class="user-info">
+                             <!-- Placeholder image -->
+                            <img src="./women3.jpg" alt="Kristin Watson" class="profile-pic">
+                            <div>
+                                <span class="user-name">Kristin Watson</span>
+                                <span class="user-email">kristin.watson@example.com</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="title-main">Lead Implementation Liaison</span>
+                        <span class="title-sub">Mobility</span>
+                    </td>
+                     <td><span class="status-pill status-active">Active</span></td>
+                    <td>Admin</td>
+                    <td><a href="#" class="edit-link">Edit</a></td>
+                </tr>
+                 <tr>
+                    <td>
+                        <div class="user-info">
+                            <!-- Placeholder image -->
+                            <img src="./men.jpg" alt="Danny Williamson" class="profile-pic">
+                            <div>
+                                <span class="user-name">Danny Williamson</span>
+                                <span class="user-email">danny.williamson@example.com</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="title-main">Internal Applications Engineer</span>
+                        <span class="title-sub">Security</span>
+                    </td>
+                     <td><span class="status-pill status-pending">Pending</span></td>
+                    <td>Member</td>
+                    <td><a href="#" class="edit-link">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
