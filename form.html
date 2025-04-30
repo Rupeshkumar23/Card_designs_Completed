@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #eef2f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .form-container h1 {
+            color: #6a5acd;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .form-container .subtitle {
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            font-size: 0.9em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: #fff;
+            transition: border-color 0.2s ease-in-out;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #6a5acd;
+            box-shadow: 0 0 0 2px rgba(106, 90, 205, 0.2);
+        }
+
+        ::placeholder {
+            color: #aaa;
+            opacity: 1;
+        }
+
+        select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 10px 10px;
+            padding-right: 40px;
+        }
+
+        input[type="text"]#start-date {
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23666" d="M19 3h-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1H8V2c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 20px;
+            padding-right: 40px;
+            background-color: #ffffff;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .file-input-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .file-upload-button {
+            display: inline-block;
+            padding: 2px 12px;
+            outline: none;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-size: 12px;
+            color: #333;
+            transition: background-color 0.2s ease;
+            font-weight: normal;
+        }
+
+        .file-upload-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .file-name-display {
+            font-size: 0.9em;
+            color: #555;   
+        }
+
+        .form-group-file > label:first-child {
+            display: block;
+            margin-bottom: 0;
+            font-weight: 600;
+            color: #444;
+            font-size: 0.9em;
+        }
+
+        input[type="file"]#resume {
+           display: block;
+        }
+
+        .form-group-file {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+             gap: 30px;
+        }
+       
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #7b68ee;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #6a5acd;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>APPLICATION FORM</h1>
+        <p class="subtitle">Please complete the following application form details.</p>
+
+        <form action="#" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first_name" placeholder="Your first name">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last_name" placeholder="Your last name">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender">
+                        <option value="male" selected>Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer_not_to_say">Prefer not to say</option>
+                    </select>
+                </div>
+            </div>
+
+             <div class="form-group">
+                 <label for="phone">Phone</label>
+                 <div class="form-row" style="margin-bottom: 0;">
+                     <div class="form-group" style="flex: 0 1 120px;">
+                         <input type="tel" id="area-code" name="area_code" placeholder="Area Code">
+                     </div>
+                     <div class="form-group">
+                         <input type="tel" id="phone-number" name="phone_number" placeholder="Phone Number">
+                     </div>
+                 </div>
+             </div>
+
+            <div class="form-group">
+                <label for="position">Applying for Position</label>
+                <input type="text" id="position" name="position">
+            </div>
+
+            <div class="form-group">
+                <label for="start-date">when can you start?</label>
+                <input type="text" id="start-date" name="start_date" placeholder="dd-mm-yyyy">
+            </div>
+
+            <div class="form-group">
+                <label for="address1">Address</label>
+                <input type="text" id="address1" name="address1" placeholder="Street Address">
+            </div>
+            <div class="form-group">
+                <input type="text" id="address2" name="address2" placeholder="Street Address Line 2">
+            </div>
+
+            <div class="form-group">
+                <label for="cover-letter">Cover Letter</label>
+                <textarea id="cover-letter" name="cover_letter"></textarea>
+            </div>
+
+            <div class="form-group form-group-file">
+                <label>Upload Resume</label>
+                <div class="file-input-wrapper">
+                    <label for="resume" class="file-upload-button">Upload File</label>
+                    <input type="file" id="resume" name="resume" class="visually-hidden">
+                    <span class="file-name-display">No file chosen</span>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Apply Now</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
