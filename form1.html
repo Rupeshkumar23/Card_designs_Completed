@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #2e8b57; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px; 
+        }
+
+        .form-container {
+            background-color: #f0f0f0; 
+            padding: 40px;
+            border-radius: 8px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 700px; 
+            width: 100%; 
+        }
+
+        .form-container h2 {
+            color: #dc143c; 
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 1.5em; 
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 30px; 
+            row-gap: 25px;    
+        }
+
+     
+        .form-group {
+            position: relative;
+            margin: 0;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1; 
+        }
+
+
+        .form-group label {
+            position: absolute;
+            left: 0;
+            pointer-events: none;
+            transform-origin: 0 0;
+            transition: transform 0.2s ease-out, color 0.2s;
+            color: #555;
+            font-size: 1em;
+            line-height: 1;
+            top: 8px;
+        }
+
+  
+        .form-group input,
+        .form-group textarea {
+            font-size: 1em;
+            padding: 8px 0;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background: transparent;
+            width: 100%;
+            transition: border-color 0.2s;
+        }
+
+    
+        .form-group input:focus ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group input:not(:placeholder-shown) ~ label,
+        .form-group textarea:not(:placeholder-shown) ~ label {
+            transform: translateY(-20px) scale(0.8);
+            color: #8a2be2;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-bottom: 2px solid #8a2be2;
+        }
+
+     
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: transparent;
+        }
+
+      
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-bottom: 2px solid #8a2be2; 
+        }
+
+    
+        .form-group textarea {
+            min-height: 80px; 
+            resize: none; 
+        }
+
+   
+        .submit-btn {
+            grid-column: 1 / -1; 
+            background-color: #b22222; 
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            width: 100%; 
+        }
+
+        .submit-btn:hover {
+            background-color: #8b0000; 
+        }
+
+        @media (max-width: 600px) {
+            .contact-form {
+                grid-template-columns: 1fr; 
+                row-gap: 20px;
+            }
+
+            .form-group {
+                grid-column: 1 / -1;
+            }
+
+            .submit-btn {
+                grid-column: 1 / -1;
+            }
+
+            .form-container {
+                padding: 25px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>CONTACT US</h2>
+        <form action="#" method="post" class="contact-form">
+
+            <!-- First Name -->
+            <div class="form-group">
+                <input type="text" id="first-name" name="first_name" placeholder=" " required>
+                <label for="first-name">First Name</label>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                <input type="text" id="last-name" name="last_name" placeholder=" " required>
+                <label for="last-name">Last Name</label>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <label for="email">Email</label>
+            </div>
+
+            <!-- Contact No -->
+            <div class="form-group">
+                <input type="tel" id="contact-no" name="contact_no" placeholder=" ">
+                <label for="contact-no">Contact No</label>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group full-width">
+                <textarea id="message" name="message" placeholder=" " required></textarea>
+                <label for="message">Write your message</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Send Message</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
