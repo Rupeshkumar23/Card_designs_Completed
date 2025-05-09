@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cooking Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=comment,news"
+    />
+    <style>
+      :root {
+        --primary-color: #4a60c3; 
+        --text-dark: #333333;
+        --text-light: #6c757d; 
+        --bg-main: #ffffff; 
+        --bg-body: #f8f9fa; 
+        --border-color: #eeeeee;
+        --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background-color: var(--bg-body);
+        color: var(--text-dark);
+        line-height: 1.6;
+        padding: 20px; 
+      }
+
+      
+      .page-wrapper {
+        max-width: 1100px; 
+        margin: 0 auto;
+        background-color: var(--bg-main);
+        padding: 24px;
+      }
+
+      .blog-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 16px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .blog-title-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+      }
+
+      .blog-title-container .icon-newspaper {
+        font-size: 26px;
+        color: var(--primary-color);
+        line-height: 1; 
+      }
+
+      .blog-header h1 {
+        font-size: 20px;
+        font-weight: 700; 
+        color: var(--primary-color);
+      }
+
+      .blog-header .see-all {
+        font-size: 14px;
+        color: var(--text-dark);
+        text-decoration: none;
+        font-weight: 500; 
+      }
+
+      .blog-header .see-all:hover {
+        text-decoration: underline;
+      }
+
+     
+      .blog-posts-container {
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 24px; 
+      }
+
+     
+      .blog-card {
+        background-color: var(--bg-main); 
+        border-radius: 8px;
+        box-shadow: var(--card-shadow);
+        overflow: hidden; 
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 280px; 
+      }
+
+      .card-image-container {
+        position: relative; 
+        width: 100%;
+        height: 190px; 
+      }
+
+      .card-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        display: block; 
+      }
+
+      .category-tag {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 10px;
+        font-size: 12px;
+        font-weight: 500;
+        border-radius: 4px;
+      }
+
+      .card-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; 
+      }
+
+      .card-content h2 {
+        font-size: 18px;
+        font-weight: 600; 
+        margin-bottom: 8px;
+        color: var(--text-dark);
+      }
+
+      .card-content p {
+        font-size: 14px;
+        color: var(--text-light);
+        margin-bottom: 16px;
+        flex-grow: 1;
+      }
+
+      .card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: var(--text-light);
+        margin-top: auto;
+      }
+
+      .card-meta span {
+        display: flex;
+        align-items: center;
+        gap: 6px; 
+      }
+      .card-meta .icon {
+        line-height: 1; 
+           font-size: 18px;
+      }
+
+      .logo-container-ewa {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        display: flex;
+        align-items: center; 
+        gap: 8px;
+        z-index: 1000;
+      }
+
+      .logo-icon-ewa {
+        display: flex;
+        align-items: flex-end; 
+        height: 24px; 
+      }
+
+      .logo-icon-ewa .bar {
+        width: 6px;
+        background-color: #000000;
+        transform: skewX(-18deg); 
+        margin-right: 2px; 
+      }
+      .logo-icon-ewa .bar:last-child {
+        margin-right: 0; 
+      }
+
+  
+      .logo-icon-ewa .bar1 {
+        height: 15px;
+      } 
+      .logo-icon-ewa .bar2 {
+        height: 22px;
+      } 
+      .logo-icon-ewa .bar3 {
+        height: 18px;
+      } 
+
+      .logo-text-ewa {
+        font-family: var(--font-family); 
+        font-size: 14px;
+        line-height: 1.2; 
+        color: #000000; 
+      }
+
+      .logo-text-ewa strong {
+        font-weight: 700; 
+      }
+  
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="blog-header">
+        <div class="blog-title-container">
+    <span class="material-symbols-outlined icon-newspaper">news</span>
+          <h1>COOKING BLOG</h1>
+        </div>
+        <a href="#" class="see-all">See All</a>
+      </header>
+
+      <div class="blog-posts-container">
+        <article class="blog-card">
+          <div class="card-image-container">
+            <img src="./img_1.jpg" alt="Caprese Salad with basil" />
+            <span class="category-tag">Cooking</span>
+          </div>
+          <div class="card-content">
+            <h2>Simplest Salad Recipe ever</h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+            <div class="card-meta">
+              <span><span class="icon">⏰</span> 6 mins ago</span>
+            
+              <span><span class="material-symbols-outlined icon">
+comment
+</span> 39 Comments</span>
+
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="card-image-container">
+            <img src="./img_2.jpg" alt="Fast food meal with burger and fries" />
+            <span class="category-tag">Cooking</span>
+          </div>
+          <div class="card-content">
+            <h2>Best FastFood Ideas (Yummy)</h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+            <div class="card-meta">
+              <span><span class="icon">⏰</span> 10 days ago</span>
+              <span><span class="material-symbols-outlined icon"> comment </span> 0 Comments</span
+              >
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="card-image-container">
+            <img src="./img_3.jpg" alt="Person holding a bowl of salad" />
+            <span class="category-tag">Cooking</span>
+          </div>
+          <div class="card-content">
+            <h2>Why to eat salad?</h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+            <div class="card-meta">
+              <span><span class="icon">⏰</span> 16 hours ago</span>
+              <span><span class="material-symbols-outlined icon">comment</span> 9 Comments</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>
