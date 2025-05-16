@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card With Photo Animation</title>
+    <style>
+        /* CSS Reset and Basic Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            background-color: #222; /* Dark background, similar to the video */
+            display: grid; /* Using grid to center the container */
+            place-items: center; /* Centers content both horizontally and vertically */
+            font-family: sans-serif;
+            overflow: hidden; /* Prevents scrollbars if content slightly overflows during animation */
+        }
+
+        .container {
+            display: flex; /* Use flexbox to arrange images */
+            justify-content: center; /* Center images horizontally */
+            align-items: center; /* Center images vertically */
+            gap: 20px; /* Space between images */
+            
+            /* Set maximum dimensions for the container.
+               Images will scale relative to this. */
+            max-width: 800px; 
+            width: 90%; /* Allow it to shrink on smaller screens */
+            max-height: 350px;
+            height: 50vh; /* Responsive height, can adjust as needed */
+            padding: 10px; /* Some padding around the images */
+            cursor: pointer; /* Change cursor on hover over the container */
+        }
+
+        .container img {
+            width: 30%; /* Each image takes up roughly a third of the container width */
+            height: 100%; /* Images take full height of the container */
+            object-fit: cover; /* Ensures images cover the area, cropping if necessary */
+            
+            /* Initial 3D rotation */
+            transform: perspective(800px) rotateY(25deg);
+            
+            /* Smooth transition for transform and opacity changes */
+            transition: transform 0.5s, opacity 0.5s;
+            
+            border: 2px solid #fff; /* Optional: adds a white border like some 3D card effects */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Optional: adds a subtle shadow */
+        }
+
+        /* When hovering over the entire container, dim all images slightly */
+        .container:hover img {
+            opacity: 0.5;
+        }
+
+        /* When hovering over a specific image within the container */
+        .container img:hover {
+            /* Straighten the image, bring it forward, and scale it up */
+            transform: perspective(800px) rotateY(0deg) scale(1.2);
+            opacity: 1; /* Make the hovered image fully opaque */
+            z-index: 99; /* Bring the hovered image to the front */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 
+            Replace these placeholder image URLs with your actual image paths.
+            The video uses:
+            "images/11.jpg"
+            "images/22.jpg"
+            "images/33.jpg"
+            Make sure you have an 'images' folder with these (or your chosen) images.
+        -->
+        <img src="./flower_1.jpg" alt="Red Roses in Vase">
+        <img src="./flower_2.jpg" alt="Pink Flowers and Coffee">
+        <img src="./flower_3.jpg" alt="Purple Flowers by Window">
+    </div>
+
+</body>
+</html>

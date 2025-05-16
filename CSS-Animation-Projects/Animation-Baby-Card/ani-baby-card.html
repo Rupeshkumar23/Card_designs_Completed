@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Baby Card</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: #2f3542; /* Dark blue background from video */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height for centering */
+        }
+
+        .card {
+            position: relative;
+            width: 300px; /* Adjusted slightly for better visual balance */
+            height: 300px; /* Made it square for initial image */
+            background-color: #fff; /* Main card background */
+            border-radius: 3px; /* Slight rounding */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            /* overflow: hidden; /* Not needed if details are positioned correctly */
+            transition: all 0.5s ease-in-out; /* For smooth overall card transformations if any */
+            cursor: pointer;
+        }
+
+        /* Pseudo-elements for the stacked cards effect */
+        .card::before,
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 4px; /* As per video for pseudo elements */
+            z-index: -1; /* Place them behind the main card content */
+            transition: all 0.5s ease-in-out;
+        }
+
+        .card:hover::before {
+            transform: rotate(20deg);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        .card:hover::after {
+            transform: rotate(10deg);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        .img-box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            bottom: 10px; /* Initially covers almost entire card */
+            right: 10px;
+            background-color: #2f3542; /* Same as body, creates border illusion */
+            transition: bottom 0.5s ease-in-out; /* Only animate bottom for reveal */
+            z-index: 1; /* Above pseudo-elements, below text details on hover */
+        }
+
+        .img-box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the box without distortion */
+            z-index: 2; /* To be on top of the img-box background color */
+        }
+
+        .card:hover .img-box {
+            bottom: 80px; /* Shrinks from bottom to reveal space for details */
+        }
+
+        .details {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 10px; /* Positioned at the bottom of the card */
+            height: 60px; /* Fixed height for the text area */
+            text-align: center;
+            /* Opacity and transform for a subtle reveal, though video relies on img-box */
+            opacity: 0;
+            transform: translateY(100%); /* Start below its final position */
+            transition: opacity 0.5s 0.2s ease-in-out, transform 0.5s 0.2s ease-in-out; /* Delayed transition */
+            z-index: 0; /* Initially can be 0, or 1 if img-box starts at 0 */
+        }
+        
+        .card:hover .details {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 2; /* Ensure details are clickable and above img-box if needed*/
+        }
+
+
+        .details h2 {
+            margin: 0;
+            padding-top: 5px; /* Small padding from top of details box */
+            font-weight: 600;
+            font-size: 20px;
+            color: #222; /* Dark grey for main name */
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .details h2 span {
+            font-size: 16px;
+            color: #ff4757; /* Reddish color for "Baby Girl" */
+            font-weight: 500;
+            text-transform: capitalize; /* As seen in video */
+            display: block; /* Ensure it takes its own line */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="img-box">
+            <!-- Replace with your image path -->
+            <img src="./baby.jpg" alt="Tiya Patricia">
+        </div>
+        <div class="details">
+            <h2>Tiya Patricia<br><span>Baby Girl</span></h2>
+        </div>
+    </div>
+
+</body>
+</html>

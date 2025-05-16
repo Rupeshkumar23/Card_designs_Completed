@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Writing Effect</title>
+    <style>
+        /* Global reset/basic styling (optional but good practice) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif; /* Fallback font */
+            background-color: #ffffff; /* White background as in the video */
+            color: #333; /* Default text color */
+            line-height: 1.6;
+        }
+
+        /* Container to center the typing text */
+        .container {
+            height: 100vh; /* Full viewport height */
+            display: grid; /* Use Grid for centering */
+            place-items: center; /* Shorthand to center content horizontally and vertically */
+        }
+
+        /* Styling for the typing text element */
+        .typing-text {
+            font-family: monospace; /* Monospaced font for a classic typing look */
+            font-size: 3em; /* Font size for the typing text */
+            color: #192a56; /* Navy blue color as shown in the video */
+            
+            /* The border-right acts as the cursor */
+            /* Color is inherited from the 'color' property by default */
+            border-right: 3px solid; 
+            
+            /* Width is set to accommodate the number of characters. 
+               'ch' unit is relative to the width of the "0" character. */
+            width: 22ch; 
+            
+            white-space: nowrap; /* Prevents the text from wrapping to the next line */
+            overflow: hidden; /* Hides text that extends beyond the width during animation */
+            
+            /* Animation:
+               1. 'typing' animation: lasts 3 seconds, progresses in 22 steps (for 22 characters).
+               2. 'blink' animation: for the cursor, lasts 0.5 seconds, steps at the end,
+                  runs infinitely, and alternates (visible/invisible).
+            */
+            animation: 
+                typing 3s steps(22), /* steps should match the number of characters */
+                blink 0.5s step-end infinite alternate;
+        }
+
+        /* Keyframes for the typing animation */
+        @keyframes typing {
+            from {
+                width: 0; /* Start with zero width (no text visible) */
+            }
+            /* 'to' state is implicitly width: 22ch; as defined in .typing-text */
+        }
+
+        /* Keyframes for the cursor blinking animation */
+        @keyframes blink {
+            50% {
+                border-color: transparent; /* Makes the cursor (border) invisible */
+            }
+        }
+
+        /* Responsive font size adjustments using viewport units for larger screens if needed,
+           but for simplicity and junior level, a fixed 'em' or 'px' is often fine.
+           The current '3em' will scale with the root font size.
+           If you want it to scale more directly with viewport width:
+        */
+        @media (min-width: 600px) { /* Example for slightly larger screens, still no complex media queries */
+            .typing-text {
+                font-size: 4em; /* Increase font size on larger viewports */
+            }
+        }
+        @media (min-width: 900px) {
+            .typing-text {
+                font-size: 5em; /* Even larger on wider screens */
+            }
+        }
+        /* The above media queries are optional for further responsiveness,
+           the core layout is responsive due to Grid and relative units.
+           For strict "no media queries" as requested, these can be removed.
+           The video's CSS didn't use media queries for this effect.
+           So I'll provide the version without the optional media queries for font-size first.
+        */
+
+    </style>
+    <!-- Re-adjusting style for strict "no media queries" as per primary requirement -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        .container {
+            height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .typing-text {
+            font-family: monospace;
+            /* Using a slightly smaller base font size for better general fit without media queries */
+            /* The video uses 5em, but this can be very large on small screens */
+            /* Let's use a vw unit for responsiveness, or a smaller em */
+            font-size: clamp(2em, 6vw, 5em); /* Responsive font size: min, preferred, max */
+            color: #192a56;
+            border-right: 3px solid; /* Cursor color will be #192a56 */
+            width: 22ch; /* "This is a typing demo." has 22 characters including spaces and period */
+            white-space: nowrap;
+            overflow: hidden;
+            animation: 
+                typing 3s steps(22),
+                blink 0.5s step-end infinite alternate;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="typing-text">This is a typing demo.</div>
+    </div>
+
+</body>
+</html>
