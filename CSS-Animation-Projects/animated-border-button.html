@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Border Button</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid; 
+            place-items: center; 
+            min-height: 100vh; 
+            background-color: #ffffff; 
+            font-family: "Roboto Condensed", sans-serif; 
+        }
+
+        .container {
+            width: 200px;
+            height: 80px;
+            background-color: #ffffff;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            border-radius: 100px;
+            overflow: hidden; 
+            position: relative; 
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .border {
+            position: absolute;
+            top: 50%; 
+            left: 50%;
+            width: 200px;  
+            height: 40px; 
+            background: linear-gradient(45deg, #e94cdc, #4c28e4); 
+            
+            animation-name: rotateAnimation;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-play-state: paused; 
+            z-index: 1;
+        }
+
+        .container button {
+            position: absolute; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            
+            width: 190px;  
+            height: 70px; 
+            
+            background-color: #ffffff;
+            border: none; 
+            border-radius: 100px; 
+            
+            font-size: 25px; 
+            color: #000000;  
+            font-family: "Roboto Condensed", sans-serif; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            cursor: pointer; 
+            z-index: 2; 
+        }
+
+        @keyframes rotateAnimation {
+            from {
+           
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .container:hover .border {
+            animation-play-state: running;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="border"></div>
+        <button>Click Me</button>
+    </div>
+
+</body>
+</html>
