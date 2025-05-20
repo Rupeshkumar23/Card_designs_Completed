@@ -1,93 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wave Effect in CSS</title>
     <style>
-        /* Global Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        /* Body Styling */
-        body {
-            min-height: 100vh;
-            display: grid; /* For centering the wave-container */
-            place-items: center; /* For centering the wave-container */
-            background-color: #1e272e; /* Dark background similar to video */
-            overflow: hidden; /* To prevent scrollbars if container is slightly off due to perspective */
-        }
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: #1e272e;
+        overflow: hidden;
+      }
 
-        /* Wave Container Styling */
-        .wave-container {
-            width: min(500px, 80vmin); /* Responsive width */
-            height: min(500px, 80vmin); /* Responsive height */
-            position: relative;
-            transform-style: preserve-3d;
-            /* Perspective and rotation to achieve the 3D view */
-            transform: perspective(800px) rotateX(60deg);
-        }
+      .wave-container {
+        width: min(500px, 80vmin);
+        height: min(500px, 80vmin);
+        position: relative;
+        transform-style: preserve-3d;
+        transform: perspective(800px) rotateX(60deg);
+      }
 
-        /* Individual Circle Styling */
-        .wave-container div {
-            position: absolute;
-            display: block;
-            border: 10px solid #fff; /* White border for the circles */
-            box-shadow: 0 8px 0 #ccc; /* Subtle shadow for 3D effect on the ring itself */
-            border-radius: 50%; /* Makes the div a circle */
-            
-            /* Animation properties */
-            animation-name: wave-animation;
-            animation-duration: 3s;
-            animation-timing-function: ease-in-out;
-            animation-iteration-count: infinite;
-            /* Staggered animation delay using the --i custom property */
-            animation-delay: calc(var(--i) * 0.1s);
+      .wave-container div {
+        position: absolute;
+        display: block;
+        border: 10px solid #fff;
+        box-shadow: 0 8px 0 #ccc;
+        border-radius: 50%;
+        animation-name: wave-animation;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-delay: calc(var(--i) * 0.1s);
+        top: calc(var(--i) * 10px);
+        left: calc(var(--i) * 10px);
+        bottom: calc(var(--i) * 10px);
+        right: calc(var(--i) * 10px);
+      }
 
-            /* Positioning to create concentric circles */
-            /* Each subsequent circle is inset by 10px on all sides */
-            top: calc(var(--i) * 10px);
-            left: calc(var(--i) * 10px);
-            bottom: calc(var(--i) * 10px);
-            right: calc(var(--i) * 10px);
+      @keyframes wave-animation {
+        0%,
+        100% {
+          transform: translateZ(-120px);
         }
-
-        /* Keyframes for the wave animation */
-        @keyframes wave-animation {
-            0%, 100% {
-                transform: translateZ(-120px); /* Innermost position along Z-axis */
-            }
-            50% {
-                transform: translateZ(120px);  /* Outermost position along Z-axis */
-            }
+        50% {
+          transform: translateZ(120px);
         }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wave-container">
-        <div style="--i:0;"></div>
-        <div style="--i:1;"></div>
-        <div style="--i:2;"></div>
-        <div style="--i:3;"></div>
-        <div style="--i:4;"></div>
-        <div style="--i:5;"></div>
-        <div style="--i:6;"></div>
-        <div style="--i:7;"></div>
-        <div style="--i:8;"></div>
-        <div style="--i:9;"></div>
-        <div style="--i:10;"></div>
-        <div style="--i:11;"></div>
-        <div style="--i:12;"></div>
-        <div style="--i:13;"></div>
-        <div style="--i:14;"></div>
-        <div style="--i:15;"></div>
-        <div style="--i:16;"></div>
-        <div style="--i:17;"></div>
-        <div style="--i:18;"></div>
-        <div style="--i:19;"></div>
+      <div style="--i: 0"></div>
+      <div style="--i: 1"></div>
+      <div style="--i: 2"></div>
+      <div style="--i: 3"></div>
+      <div style="--i: 4"></div>
+      <div style="--i: 5"></div>
+      <div style="--i: 6"></div>
+      <div style="--i: 7"></div>
+      <div style="--i: 8"></div>
+      <div style="--i: 9"></div>
+      <div style="--i: 10"></div>
+      <div style="--i: 11"></div>
+      <div style="--i: 12"></div>
+      <div style="--i: 13"></div>
+      <div style="--i: 14"></div>
+      <div style="--i: 15"></div>
+      <div style="--i: 16"></div>
+      <div style="--i: 17"></div>
+      <div style="--i: 18"></div>
+      <div style="--i: 19"></div>
     </div>
-</body>
+  </body>
 </html>

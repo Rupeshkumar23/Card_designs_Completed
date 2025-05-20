@@ -1,83 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Toggle Switch </title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Toggle Switch</title>
     <style>
-        /* Universal Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        /* Main container for centering the toggle and changing background */
-        .container {
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-            background-color: aliceblue; /* Initial background */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.5s ease; /* Smooth background transition */
-        }
+      .container {
+        width: 100%;
+        height: 100vh;
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.5s ease;
+      }
 
-        /* Change container background when the checkbox inside it is checked */
-        .container:has(input#check:checked) {
-            background-color: #333333; /* Dark background when toggle is on */
-        }
+      .container:has(input#check:checked) {
+        background-color: #333333;
+      }
 
-        /* Hide the actual checkbox */
-        input[type="checkbox"]#check { /* More specific selector if needed */
-            display: none;
-        }
+      input[type="checkbox"]#check {
+        display: none;
+      }
 
-        /* Styling for the label which acts as the toggle switch track */
-        .btn {
-            display: block; /* To apply width and height */
-            width: 200px;
-            height: 100px;
-            background-color: #c1c1c1; /* Default off background color */
-            border-radius: 200px; /* Pill shape */
-            cursor: pointer;
-            position: relative; /* For positioning the ::before pseudo-element */
-            transition: background-color 0.5s ease; /* Smooth background transition for the toggle itself */
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        }
+      .btn {
+        display: block;
+        width: 200px;
+        height: 100px;
+        background-color: #c1c1c1;
+        border-radius: 200px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.5s ease;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
 
-        /* Styling for the toggle switch thumb (the circle) */
-        .btn::before {
-            content: "";
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            background-color: #ffffff; /* White circle */
-            border-radius: 200px; /* Make it a circle */
-            margin: 5px; /* Positioning from the left and top */
-            transition: transform 0.5s ease; /* Smooth sliding animation */
-        }
+      .btn::before {
+        content: "";
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        background-color: #ffffff;
+        border-radius: 200px;
+        margin: 5px;
+        transition: transform 0.5s ease;
+      }
 
-        /* Styles when the checkbox is checked */
-        input[type="checkbox"]#check:checked + .btn {
-            background-color: #dc143c; /* Red background when on */
-        }
+      input[type="checkbox"]#check:checked + .btn {
+        background-color: #dc143c;
+      }
 
-        input[type="checkbox"]#check:checked + .btn::before {
-            transform: translateX(100px); /* Move the circle to the right */
-        }
+      input[type="checkbox"]#check:checked + .btn::before {
+        transform: translateX(100px);
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        <input type="checkbox" id="check">
-        <label for="check" class="btn"></label>
+      <input type="checkbox" id="check" />
+      <label for="check" class="btn"></label>
     </div>
-
-</body>
+  </body>
 </html>
-
 
 <!--
 <!DOCTYPE html>

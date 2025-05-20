@@ -1,103 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pure CSS Accordion</title>
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
 
-body {
-    background-color: aliceblue;
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-}
+      body {
+        background-color: aliceblue;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
 
-.container {
-    max-width: 600px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
+      .container {
+        max-width: 600px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      }
 
-.container input[type="radio"] {
-    display: none;
-}
+      .container input[type="radio"] {
+        display: none;
+      }
 
-.container label {
-    cursor: pointer;
-    height: 40px;
-    line-height: 40px;
-    display: block;
-    background-color: #1b7f79; /* Teal color */
-    color: #fff;
-    padding: 0px 10px;
-    transition: background-color 0.5s;
-}
+      .container label {
+        cursor: pointer;
+        height: 40px;
+        line-height: 40px;
+        display: block;
+        background-color: #1b7f79;
+        color: #fff;
+        padding: 0px 10px;
+        transition: background-color 0.5s;
+      }
 
-.container label:hover {
-    background-color: #ff4858; 
-}
+      .container label:hover {
+        background-color: #ff4858;
+      }
 
-.container input:checked + label {
-    background-color: #ff4858; 
-}
+      .container input:checked + label {
+        background-color: #ff4858;
+      }
 
-.ac { /* Accordion content div */
-    background: rgba(255, 255, 255, 0.5); 
-    overflow: hidden; 
-    color: #333;
-    height: 0; 
-    transition: height 0.3s ease-in-out;
-}
+      .ac {
+        background: rgba(255, 255, 255, 0.5);
+        overflow: hidden;
+        color: #333;
+        height: 0;
+        transition: height 0.3s ease-in-out;
+      }
 
-.ac p {
-    color: #777; 
-    padding: 20px;
-    font-weight: 400;
-}
+      .ac p {
+        color: #777;
+        padding: 20px;
+        font-weight: 400;
+      }
 
-.container input:checked ~ .ac { 
-    height: 150px; 
-}
-</style>
-</head>
-<body>
+      .container input:checked ~ .ac {
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
     <div class="container">
-        <div> 
-            <input type="radio" id="ac1" name="accordion" checked />
-            <label for="ac1">Lorem ipsum dolor sit amet.</label>
-            <div class="ac">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam itaque officiis, ratione accusantium temporibus adipisci. Fugiat ab dolorem quasi delectus voluptatibus recusandae error corrupti velit, magni consectetur aut ipsam fuga.</p>
-            </div>
+      <div>
+        <input type="radio" id="ac1" name="accordion" checked />
+        <label for="ac1">Lorem ipsum dolor sit amet.</label>
+        <div class="ac">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam
+            itaque officiis, ratione accusantium temporibus adipisci. Fugiat ab
+            dolorem quasi delectus voluptatibus recusandae error corrupti velit,
+            magni consectetur aut ipsam fuga.
+          </p>
         </div>
-        <div> 
-            <input type="radio" id="ac2" name="accordion" />
-            <label for="ac2">Lorem ipsum dolor sit amet.</label>
-            <div class="ac">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam itaque officiis, ratione accusantium temporibus adipisci. Fugiat ab dolorem quasi delectus voluptatibus recusandae error corrupti velit, magni consectetur aut ipsam fuga.</p>
-            </div>
+      </div>
+      <div>
+        <input type="radio" id="ac2" name="accordion" />
+        <label for="ac2">Lorem ipsum dolor sit amet.</label>
+        <div class="ac">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam
+            itaque officiis, ratione accusantium temporibus adipisci. Fugiat ab
+            dolorem quasi delectus voluptatibus recusandae error corrupti velit,
+            magni consectetur aut ipsam fuga.
+          </p>
         </div>
-        <div> 
-            <input type="radio" id="ac3" name="accordion" />
-            <label for="ac3">Lorem ipsum dolor sit amet.</label>
-            <div class="ac">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam itaque officiis, ratione accusantium temporibus adipisci. Fugiat ab dolorem quasi delectus voluptatibus recusandae error corrupti velit, magni consectetur aut ipsam fuga.</p>
-            </div>
+      </div>
+      <div>
+        <input type="radio" id="ac3" name="accordion" />
+        <label for="ac3">Lorem ipsum dolor sit amet.</label>
+        <div class="ac">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam
+            itaque officiis, ratione accusantium temporibus adipisci. Fugiat ab
+            dolorem quasi delectus voluptatibus recusandae error corrupti velit,
+            magni consectetur aut ipsam fuga.
+          </p>
         </div>
-        <div> 
-            <input type="radio" id="ac4" name="accordion" />
-            <label for="ac4">Lorem ipsum dolor sit amet.</label>
-            <div class="ac">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam itaque officiis, ratione accusantium temporibus adipisci. Fugiat ab dolorem quasi delectus voluptatibus recusandae error corrupti velit, magni consectetur aut ipsam fuga.</p>
-            </div>
+      </div>
+      <div>
+        <input type="radio" id="ac4" name="accordion" />
+        <label for="ac4">Lorem ipsum dolor sit amet.</label>
+        <div class="ac">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam
+            itaque officiis, ratione accusantium temporibus adipisci. Fugiat ab
+            dolorem quasi delectus voluptatibus recusandae error corrupti velit,
+            magni consectetur aut ipsam fuga.
+          </p>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
